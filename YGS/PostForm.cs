@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace YGS
 {
-    class PostForm
+     class PostForm
     {
         /// <summary>
         /// 使用Post方法获取字符串结果
@@ -19,7 +19,7 @@ namespace YGS
         /// <param name="timeOut">默认20秒</param>
         /// <param name="encoding">响应内容的编码类型（默认utf-8）</param>
         /// <returns></returns>
-        public static string PostForm1(string url, List<FormItemModel> formItems, CookieContainer cookieContainer = null, string refererUrl = null, Encoding encoding = null, int timeOut = 20000)
+        public static string PostForm1(string url, List<FormItemModel> formItems, CookieContainer cookieContainer = null, string refererUrl = null, Encoding encoding = null, int timeOut = 6000000)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             #region 初始化请求对象
@@ -146,6 +146,64 @@ namespace YGS
                     return retString;
                 }
             }
+        }
+
+        /// <summary>
+        /// 经销存 回调接口
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public static string JXC(object code)
+        {
+            var url = "http://120.79.195.198:8090/vquery.ashx";
+            var formDatas = new List<FormItemModel>();
+            formDatas.Add(new FormItemModel()
+            {
+                Key = "accesstoken",
+                Value = "s587kwmsd007ke"
+            });
+            formDatas.Add(new FormItemModel()
+            {
+                Key = "apicode",
+                Value = "king.inoutjxc.state.edit"
+            });
+            formDatas.Add(new FormItemModel()
+            {
+                Key = "data",
+                Value = code.ToString()
+            });
+
+            var result = PostForm1(url, formDatas);
+
+            return result;
+        }
+        /// <summary>
+        /// 采购入库和退厂接口 （1.采购入库 2.退厂）
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public static string CGRKTC(object code)
+        {
+            var url = "http://120.79.195.198:8090/vquery.ashx";
+            var formDatas = new List<FormItemModel>();
+            formDatas.Add(new FormItemModel()
+            {
+                Key = "accesstoken",
+                Value = "s587kwmsd007ke"
+            });
+            formDatas.Add(new FormItemModel()
+            {
+                Key = "apicode",
+                Value = "king.inoutdepot.state.edit"
+            });
+            formDatas.Add(new FormItemModel()
+            {
+                Key = "data",
+                Value = code.ToString()
+            });
+            //throw new Exception(formDatas.ToString());
+            var result = PostForm1(url, formDatas);
+            return result;
         }
     }
 }

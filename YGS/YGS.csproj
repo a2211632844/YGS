@@ -75,7 +75,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\dll\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\..\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -88,12 +88,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\APIServer.cs" />
+    <Compile Include="API\CallBackMethod.cs" />
     <Compile Include="API\WebApiResultHelper.cs" />
+    <Compile Include="DTBDDJSHJ.cs" />
     <Compile Include="FormItemModel.cs" />
+    <Compile Include="NewCode\JXC.cs" />
+    <Compile Include="NewCode\RKTC.cs" />
     <Compile Include="PostForm.cs" />
-    <Compile Include="YGS_CGRKAndTCD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YGS_JXC.cs" />
+    <Compile Include="YFDCallBackMethod.cs" />
+    <Compile Include="YSDCallBackMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
